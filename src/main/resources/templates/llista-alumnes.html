@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alumnes</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h3>Alumnes</h3>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Cognom</th>
+                <th>Cicle</th>
+                <th>Modalitat</th>
+                <th>Estat</th>
+                <th>Empresa</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--/*@thymesVar id="alumne" type="com.example.apilenta.entity.Alumne"*/-->
+            <tr th:each="alumne : ${alumnes}">
+                <td th:text="${alumne.id}"></td>
+                <td th:text="${alumne.nom}"></td>
+                <td th:text="${alumne.cognom}"></td>
+                <td th:text="${alumne.cicle}"></td>
+                <td th:text="${alumne.modalitat}"></td>
+                <td th:text="${alumne.estatPractiques}"></td>
+                <td th:text="${alumne.empresa}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>

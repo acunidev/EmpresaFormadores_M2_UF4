@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Empresa Formulari</title>
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+</head>
+<body>
+<br>
+<div class="container">
+    <h3>Afegir Empresa</h3>
+    <!--/*@thymesVar id="empresa" type="com.example.apilenta.entity.Empresa"*/-->
+    <form method="POST" th:action="@{/api/empresa/alta}" th:object="${empresa}">
+
+        <div class="mb-3">
+            <input class="form-control" placeholder="CIF Empresa" th:field="${empresa.cif}" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="id Empresa" th:field="${empresa.id}" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Nom Empresa" th:field="${empresa.nom}" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Adresa Empresa" th:field="${empresa.adresa}"
+                   type="text">
+        </div>
+        <button class="btn btn-info col-2" type="submit">Enter</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS -->
+<script crossorigin="anonymous"
+        integrity="sha512-xC6FmHoyUECxs0S8YnoaQLQ+Ix0LGLj0Z4v4JWDDI+DBOktK0uDzNgLfiy8bcvlUjJ6Lcbhw6XQfJZNX/Fgy3A=="
+        referrerpolicy="no-referrer"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

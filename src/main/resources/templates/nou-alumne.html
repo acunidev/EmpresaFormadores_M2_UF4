@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Alta Alumne</title>
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+</head>
+<body>
+<br>
+<div class="container">
+    <h3>Afegir Alumne</h3>
+    <!--/*@thymesVar id="alumne" type="com.example.apilenta.entity.Alumne"*/-->
+    <form method="POST" th:action="@{/api/alumnes/alta}" th:object="${alumne}">
+
+        <div class="mb-3">
+            <input class="form-control" placeholder="Alumne Nom" th:field="${alumne.nom}" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Alumne Cognom" th:field="${alumne.cognom}" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Alumne Cicle" th:field="${alumne.cicle}" type="text">
+        </div>
+        <div class="mb-3">
+            <label>
+                <select class="form-select" th:field="${alumne.modalitat}">
+                    <option th:value="DAM">DAM</option>
+                    <option th:value="DAW">DAW</option>
+                    <option th:value="ASIX">ASIX</option>
+                    <option th:value="SMIX">SMIX</option>
+                </select>
+            </label>
+        </div>
+        <div class="mb-3">
+            <label>
+                <select class="form-select" th:field="${alumne.estatPractiques}">
+                    <option th:value="PENDENT">Pendent</option>
+                    <option th:value="ENPROCES">En Procés</option>
+                    <option th:value="ACABADES">ACABADES</option>
+                </select>
+            </label>
+        </div>
+        <button class="btn btn-info col-2" type="submit">Enter</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS -->
+<script crossorigin="anonymous"
+        integrity="sha512-xC6FmHoyUECxs0S8YnoaQLQ+Ix0LGLj0Z4v4JWDDI+DBOktK0uDzNgLfiy8bcvlUjJ6Lcbhw6XQfJZNX/Fgy3A=="
+        referrerpolicy="no-referrer"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
