@@ -8,7 +8,28 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Alumnes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Api Lenta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/alumnes">LLista Alumnes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/empreses">Llista empresas</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
     <h3>Alumnes</h3>
     <div class="table-responsive">
         <table class="table table-striped table-hover">
