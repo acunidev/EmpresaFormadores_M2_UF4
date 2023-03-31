@@ -8,52 +8,31 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Alumnes</a>
-        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-                data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a aria-current="page" class="nav-link active" href="#">Api Lenta</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/api/alumnes">LLista Alumnes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/api/empreses">Llista empresas</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="container">
-    <h3>Empress</h3>
-    <div class="table-responsive">
-        <table class="table table-striped table-hover">
-            <thead class="thead-dark">
-            <tr>
-                <th>CIF</th>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Adreça</th>
-                <th>Alumne</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!--/*@thymesVar id="empresa" type="com.example.apilenta.entity.Empresa"*/-->
-            <tr th:each="empresa : ${empreses}">
-                <td th:text="${empresa.cif}"></td>
-                <td th:text="${empresa.id}"></td>
-                <td th:text="${empresa.nom}"></td>
-                <td th:text="${empresa.adresa}"></td>
-                <td th:text="${empresa.alumnes}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+
+<div th:include="htmlUtils/navbar"></div>
+
+<h3>Empreses</h3>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>CIF</th>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Adreça</th>
+            <th>Alumne</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--/*@thymesVar id="empresa" type="com.example.apilenta.entity.Empresa"*/-->
+        <tr th:each="empresa : ${empreses}">
+            <td th:text="${empresa.cif}"></td>
+            <td th:text="${empresa.id}"></td>
+            <td th:text="${empresa.nom}"></td>
+            <td th:text="${empresa.adresa}"></td>
+            <td th:text="${empresa.alumnes}"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
