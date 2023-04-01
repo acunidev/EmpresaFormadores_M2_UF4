@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -18,13 +18,19 @@
     <form method="POST" th:action="@{/api/alumnes/alta}" th:object="${alumne}">
 
         <div class="mb-3">
-            <input class="form-control" placeholder="Alumne Nom" th:field="${alumne.nom}" type="text">
+            <label>
+                <input class="form-control" placeholder="Alumne Nom" th:field="${alumne.nom}" type="text">
+            </label>
         </div>
         <div class="mb-3">
-            <input class="form-control" placeholder="Alumne Cognom" th:field="${alumne.cognom}" type="text">
+            <label>
+                <input class="form-control" placeholder="Alumne Cognom" th:field="${alumne.cognom}" type="text">
+            </label>
         </div>
         <div class="mb-3">
-            <input class="form-control" placeholder="Alumne Cicle" th:field="${alumne.cicle}" type="text">
+            <label>
+                <input class="form-control" placeholder="Alumne Cicle" th:field="${alumne.cicle}" type="text">
+            </label>
         </div>
         <div class="mb-3">
             <label>

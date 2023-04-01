@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -19,14 +19,20 @@
             <input class="form-control" placeholder="CIF Empresa" th:field="${empresa.cif}" type="text">
         </div>
         <div class="mb-3">
-            <input class="form-control" placeholder="id Empresa" th:field="${empresa.id}" type="text">
+            <label>
+                <input class="form-control" placeholder="id Empresa" th:field="${empresa.id}" type="text">
+            </label>
         </div>
         <div class="mb-3">
-            <input class="form-control" placeholder="Nom Empresa" th:field="${empresa.nom}" type="text">
+            <label>
+                <input class="form-control" placeholder="Nom Empresa" th:field="${empresa.nom}" type="text">
+            </label>
         </div>
         <div class="mb-3">
-            <input class="form-control" placeholder="Adresa Empresa" th:field="${empresa.adresa}"
-                   type="text">
+            <label>
+                <input class="form-control" placeholder="Adresa Empresa" th:field="${empresa.adresa}"
+                       type="text">
+            </label>
         </div>
         <button class="btn btn-info col-2" type="submit">Enter</button>
     </form>
