@@ -9,38 +9,67 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+/**
+ * The type Empresa controller.
+ */
 @Controller
 @RequestMapping("api")
 public class EmpresaController {
 
-    final EmpresaDao empresaDAO;
+  /**
+   * The Empresa dao.
+   */
+  final EmpresaDao empresaDao;
 
-    public EmpresaController(EmpresaDao empresaDAO) {
-        this.empresaDAO = empresaDAO;
-    }
+  /**
+   * Instantiates a new Empresa controller.
+   *
+   * @param empresaDao the empresa dao
+   */
+  public EmpresaController(EmpresaDao empresaDao) {
+    this.empresaDao = empresaDao;
+  }
 
-    @GetMapping("empreses")
-    public String empreses(Model model) {
+  /**
+   * Empreses string.
+   *
+   * @param model the model
+   * @return the string
+   */
+  @GetMapping("empreses")
+  public String empreses(Model model) {
 
-        model.addAttribute("empreses", empresaDAO.findAll());
+    model.addAttribute("empreses", empresaDao.findAll());
 
-        return "llista-empreses";
-    }
+    return "llista-empreses";
+  }
 
-    @GetMapping("/empreses/nou")
-    public String mostrarFormulariEmpresa(Model model) {
+  /**
+   * Mostrar formulari empresa string.
+   *
+   * @param model the model
+   * @return the string
+   */
+  @GetMapping("/empreses/nou")
+  public String mostrarFormulariEmpresa(Model model) {
 
-        Empresa empresa = new Empresa();
-        model.addAttribute("empresa", empresa);
+    Empresa empresa = new Empresa();
+    model.addAttribute("empresa", empresa);
 
 
-        return "nova-empresa";
-    }
+    return "nova-empresa";
+  }
 
-    @PostMapping("empresa/alta")
-    public String altaEmpresa(Empresa empresa) {
-        empresaDAO.save(empresa);
+  /**
+   * Alta empresa string.
+   *
+   * @param empresa the empresa
+   * @return the string
+   */
+  @PostMapping("empresa/alta")
+  public String altaEmpresa(Empresa empresa) {
+    empresaDao.save(empresa);
 
-        return "redirect:/api/empreses";
-    }
+    return "redirect:/api/empreses";
+  }
 }

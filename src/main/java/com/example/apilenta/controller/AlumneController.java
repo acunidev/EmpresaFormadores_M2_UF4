@@ -9,38 +9,67 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * The type Alumne controller.
+ */
 @Controller()
 @RequestMapping("api")
 public class AlumneController {
 
-    final AlumneDao alumneDAO;
+  /**
+   * The Alumne dao.
+   */
+  final AlumneDao alumneDAO;
 
-    public AlumneController(AlumneDao alumneDAO) {
-        this.alumneDAO = alumneDAO;
-    }
+  /**
+   * Instantiates a new Alumne controller.
+   *
+   * @param alumneDAO the alumne dao
+   */
+  public AlumneController(AlumneDao alumneDAO) {
+    this.alumneDAO = alumneDAO;
+  }
 
-    @GetMapping("alumnes")
-    public String alumnes(Model model) {
+  /**
+   * Alumnes string.
+   *
+   * @param model the model
+   * @return the string
+   */
+  @GetMapping("alumnes")
+  public String alumnes(Model model) {
 
-        model.addAttribute("alumnes", alumneDAO.findAll());
+    model.addAttribute("alumnes", alumneDAO.findAll());
 
-        return "llista-alumnes";
-    }
+    return "llista-alumnes";
+  }
 
-    @GetMapping("/alumnes/nou")
-    public String mostrarFormulariProjecte(Model model) {
+  /**
+   * Mostrar formulari projecte string.
+   *
+   * @param model the model
+   * @return the string
+   */
+  @GetMapping("/alumnes/nou")
+  public String mostrarFormulariProjecte(Model model) {
 
-        Alumne alumne = new Alumne();
-        model.addAttribute("alumne", alumne);
+    Alumne alumne = new Alumne();
+    model.addAttribute("alumne", alumne);
 
 
-        return "nou-alumne";
-    }
+    return "nou-alumne";
+  }
 
-    @PostMapping("alumnes/alta")
-    public String altaProjecte(Alumne alumne) {
-        alumneDAO.save(alumne);
+  /**
+   * Alta projecte string.
+   *
+   * @param alumne the alumne
+   * @return the string
+   */
+  @PostMapping("alumnes/alta")
+  public String altaProjecte(Alumne alumne) {
+    alumneDAO.save(alumne);
 
-        return "redirect:/api/alumnes";
-    }
+    return "redirect:/api/alumnes";
+  }
 }
