@@ -2,7 +2,6 @@ package com.example.apilenta.controller;
 
 import com.example.apilenta.entity.Empresa;
 import com.example.apilenta.repository.EmpresaDao;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,15 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("api")
 public class EmpresaController {
 
-    @Autowired
-    EmpresaDao empresaDAO;
+    final EmpresaDao empresaDAO;
+
+    public EmpresaController(EmpresaDao empresaDAO) {
+        this.empresaDAO = empresaDAO;
+    }
 
     @GetMapping("empreses")
     public String empreses(Model model) {
 
         model.addAttribute("empreses", empresaDAO.findAll());
 
-        return "llista-empreses.html";
+        return "llista-empreses";
     }
 
     @GetMapping("/empreses/nou")
@@ -32,7 +34,7 @@ public class EmpresaController {
         model.addAttribute("empresa", empresa);
 
 
-        return "nova-empresa.html";
+        return "nova-empresa";
     }
 
     @PostMapping("empresa/alta")
