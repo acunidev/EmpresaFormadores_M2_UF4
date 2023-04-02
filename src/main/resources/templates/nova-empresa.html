@@ -17,7 +17,9 @@
     <form method="POST" th:action="@{/api/empresa/alta}" th:object="${empresa}">
 
         <div class="mb-3">
-            <input class="form-control" placeholder="CIF Empresa" th:field="${empresa.cif}" type="text">
+            <label>
+                <input class="form-control" placeholder="CIF Empresa" th:field="${empresa.cif}" type="text">
+            </label>
         </div>
         <div class="mb-3">
             <label>
