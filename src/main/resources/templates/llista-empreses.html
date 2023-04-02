@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Empreses</title>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div th:include="/htmlUtils/navbar"></div>
+<header th:insert="~{htmlUtils/navbar}"></header>
 
 <h3>Empreses</h3>
 <div class="table-responsive">
