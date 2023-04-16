@@ -3,11 +3,14 @@ package com.example.apilenta.controller;
 
 import com.example.apilenta.entity.Alumne;
 import com.example.apilenta.repository.AlumneDao;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 /**
  * The type Alumne controller.
@@ -67,7 +70,10 @@ public class AlumneController {
    * @return the string
    */
   @PostMapping("alumnes/alta")
-  public String altaProjecte(Alumne alumne) {
+  public String altaProjecte(@Valid Alumne alumne, Errors errors) {
+    if (errors.hasErrors()) {
+      return "nou-alumne";
+    }
     alumneDAO.save(alumne);
 
     return "redirect:/api/alumnes";

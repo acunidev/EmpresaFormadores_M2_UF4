@@ -1,11 +1,11 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Alta Alumne</title>
-    <!-- Bootstrap CSS -->
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
-          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Alta Alumne</title>
+  <!-- Bootstrap CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" rel="stylesheet">
 </head>
 <body>
 
@@ -13,45 +13,50 @@
 
 <br>
 <div class="container">
-    <h3>Afegir Alumne</h3>
-    <!--/*@thymesVar id="alumne" type="com.example.apilenta.entity.Alumne"*/-->
-    <form method="POST" th:action="@{/api/alumnes/alta}" th:object="${alumne}">
-        <div class="mb-3">
-            <label>
-                <input class="form-control" placeholder="Alumne Nom" th:field="${alumne.nom}" type="text">
-            </label>
-        </div>
-        <div class="mb-3">
-            <label>
-                <input class="form-control" placeholder="Alumne Cognom" th:field="${alumne.cognom}" type="text">
-            </label>
-        </div>
-        <div class="mb-3">
-            <label>
-                <input class="form-control" placeholder="Alumne Cicle" th:field="${alumne.cicle}" type="text">
-            </label>
-        </div>
-        <div class="mb-3">
-            <label>
-                <select class="form-select" th:field="${alumne.modalitat}">
-                    <option th:value="DAM">DAM</option>
-                    <option th:value="DAW">DAW</option>
-                    <option th:value="ASIX">ASIX</option>
-                    <option th:value="SMIX">SMIX</option>
-                </select>
-            </label>
-        </div>
-        <div class="mb-3">
-            <label>
-                <select class="form-select" th:field="${alumne.estatPractiques}">
-                    <option th:value="PENDENT">Pendent</option>
-                    <option th:value="ENPROCES">En Procés</option>
-                    <option th:value="ACABADES">ACABADES</option>
-                </select>
-            </label>
-        </div>
-        <button class="btn btn-info col-2" type="submit">Enter</button>
-    </form>
+  <h3>Afegir Alumne</h3>
+  <!--/*@thymesVar id="alumne" type="com.example.apilenta.entity.Alumne"*/-->
+  <form method="POST" th:action="@{/api/alumnes/alta}" th:object="${alumne}">
+    <div class="mb-3">
+      <label>
+        <input class="form-control" placeholder="Alumne Nom" th:field="${alumne.nom}" type="text">
+        <span style="color: red" th:errors="${alumne.nom}" th:if="${#fields.hasErrors('nom')}"></span>
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        <input class="form-control" placeholder="Alumne Cognom" th:field="${alumne.cognom}" type="text">
+        <span style="color: red" th:errors="${alumne.cognom}" th:if="${#fields.hasErrors('cognom')}"></span>
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        <select class="form-select" th:field="${alumne.cicle}">
+          <option th:value="DAM">DAM</option>
+          <option th:value="DAW">DAW</option>
+          <option th:value="ASIX">ASIX</option>
+          <option th:value="SMIX">SMIX</option>
+        </select>
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        <select class="form-select" th:field="${alumne.modalitat}">
+          <option th:value="ASIX">FCT</option>
+          <option th:value="SMIX">DUAL</option>
+        </select>
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        <select class="form-select" th:field="${alumne.estatPractiques}">
+          <option th:value="PENDENT">Pendent</option>
+          <option th:value="ENPROCES">En Procés</option>
+          <option th:value="ACABADES">ACABADES</option>
+        </select>
+      </label>
+    </div>
+    <button class="btn btn-info col-2" type="submit">Enter</button>
+  </form>
 </div>
 <div th:include="htmlUtils/footer"></div>
 </body>
