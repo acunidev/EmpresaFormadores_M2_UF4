@@ -2,8 +2,10 @@ package com.example.apilenta.controller;
 
 import com.example.apilenta.entity.Empresa;
 import com.example.apilenta.repository.EmpresaDao;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,7 +58,6 @@ public class EmpresaController {
     Empresa empresa = new Empresa();
     model.addAttribute("empresa", empresa);
 
-
     return "nova-empresa";
   }
 
@@ -67,7 +68,10 @@ public class EmpresaController {
    * @return the string
    */
   @PostMapping("empresa/alta")
-  public String altaEmpresa(Empresa empresa) {
+  public String altaEmpresa(@Valid Empresa empresa, Errors errors) {
+    if (errors.hasErrors()) {
+      return "nova-empresa";
+    }
     empresaDao.save(empresa);
 
     return "redirect:/api/empreses";

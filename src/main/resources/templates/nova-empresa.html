@@ -1,44 +1,46 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Empresa Formulari</title>
-    <!-- Bootstrap CSS -->
-    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
-          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Empresa Formulari</title>
+  <!-- Bootstrap CSS -->
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" rel="stylesheet">
 </head>
 <body>
 
 <header th:insert="~{htmlUtils/navbar}"></header>
 <br>
 <div class="container">
-    <h3>Afegir Empresa</h3>
-    <!--/*@thymesVar id="empresa" type="com.example.apilenta.entity.Empresa"*/-->
-    <form method="POST" th:action="@{/api/empresa/alta}" th:object="${empresa}">
+  <h3>Afegir Empresa</h3>
+  <!--/*@thymesVar id="empresa" type="com.example.apilenta.entity.Empresa"*/-->
+  <form method="POST" th:action="@{/api/empresa/alta}" th:object="${empresa}">
 
-        <div class="mb-3">
-            <label>
-                <input class="form-control" placeholder="CIF Empresa" th:field="${empresa.cif}" type="text">
-            </label>
-        </div>
-        <div class="mb-3">
-            <label>
-                <input class="form-control" placeholder="id Empresa" th:field="${empresa.id}" type="text">
-            </label>
-        </div>
-        <div class="mb-3">
-            <label>
-                <input class="form-control" placeholder="Nom Empresa" th:field="${empresa.nom}" type="text">
-            </label>
-        </div>
-        <div class="mb-3">
-            <label>
-                <input class="form-control" placeholder="Adresa Empresa" th:field="${empresa.adresa}"
-                       type="text">
-            </label>
-        </div>
-        <button class="btn btn-info col-2" type="submit">Enter</button>
-    </form>
+    <div class="mb-3">
+      <label>
+        <input class="form-control" placeholder="CIF Empresa" th:field="${empresa.cif}" type="text">
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        <input class="form-control" placeholder="id Empresa" th:field="${empresa.id}" type="text">
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        <input class="form-control" placeholder="Nom Empresa" th:field="${empresa.nom}" type="text">
+        <span style="color: red" th:errors="${empresa.nom}" th:if="${#fields.hasErrors('nom')}"></span>
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        <input class="form-control" placeholder="Adresa Empresa" th:field="${empresa.adresa}"
+               type="text">
+        <span style="color: red" th:errors="${empresa.adresa}" th:if="${#fields.hasErrors('adresa')}"></span>
+      </label>
+    </div>
+    <button class="btn btn-info col-2" type="submit">Enter</button>
+  </form>
 </div>
 <div th:include="htmlUtils/footer"></div>
 </body>
